@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:typerracerown/screens/Create_Room_Screen.dart';
 import 'package:typerracerown/screens/HomePage.dart';
+import 'package:typerracerown/screens/Join_Room_Screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,7 +27,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      // home: const HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        '/create-room': (context) => CreateRoomScreen(),
+        '/join-room': (context) => const JoinRoomScreen(),
+      },
     );
   }
 }

@@ -5,7 +5,7 @@ class OnTapButton extends StatelessWidget {
   final String text;
   final bool isHome;
   OnTapButton(
-      {Key? key, required this.text, required this.isHome, required this.ontap})
+      {Key? key, required this.text, this.isHome = false, required this.ontap})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class OnTapButton extends StatelessWidget {
         style: TextStyle(fontSize: 24, color: Colors.white),
       ),
       style: ElevatedButton.styleFrom(
-          minimumSize: Size(!isHome ? width : width / 5, 50)),
+          minimumSize: Size(!isHome ? width : width / 4.5, 50)),
     );
   }
 }
