@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:typerracerown/Widgets/customInputText.dart';
 import 'package:typerracerown/Widgets/onTapButton.dart';
+import 'package:typerracerown/utils/socket_client.dart';
 
 class CreateRoomScreen extends StatefulWidget {
   CreateRoomScreen({Key? key}) : super(key: key);
@@ -11,11 +12,17 @@ class CreateRoomScreen extends StatefulWidget {
 
 class _CreateRoomScreenState extends State<CreateRoomScreen> {
   TextEditingController _nameController = TextEditingController();
+  final SocketClient _socketClient = SocketClient.instance;
+  // final SocketMethods _socketMethods = SocketMethods();
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     _nameController.dispose();
+  }
+
+  testing() {
+    _socketClient.socket!.emit("test", "this is working");
   }
 
   @override
@@ -42,7 +49,12 @@ class _CreateRoomScreenState extends State<CreateRoomScreen> {
                 SizedBox(
                   height: size.height * 0.05,
                 ),
-                OnTapButton(text: 'Create', ontap: () {})
+                OnTapButton(
+                  text: 'Create',
+                  ontap: testing,
+                  //     ontap: () =>
+                  //         _socketMethods.createGame(_nameController.text)
+                )
               ],
             ),
           ),
